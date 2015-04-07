@@ -1,0 +1,18 @@
+html
+  head
+    title HW7 - URL Shortener
+
+  body
+    main
+      form(action="", method="POST")
+        input(type="text" name="url" value="http://localhost:3000/" size="40")
+        input(type="submit" value="Go")
+
+      p Top shortened URL links
+      ul
+        - var baseUrl = "http://localhost:3000/";
+        each val, index in reply
+          if index % 2 == 0
+            - var shortUrl = baseUrl + val.replace("short:", "");
+            li= ((index/2)+1) + ": "
+              a(href=shortUrl) #{shortUrl}
